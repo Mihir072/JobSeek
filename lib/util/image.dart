@@ -8,4 +8,4 @@ const onBoardingImage3 = 'images/oBPage3.png';
 
 //      Connect Stundent/Alumini   //
 const studentImage = 'images/studentImage.png';
-const aluminiImage = 'images/aluminitImage.png';
+const aluminiImage = 'images/aluminiImage.png';

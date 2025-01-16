@@ -12,9 +12,11 @@ const onBoardingSubline3 =
     'Pass-out students can add jobs and events to empower others.';
 const nextButton = "Let's Start";
 
-//      Connect Stundent/Alumini   //
+//      Connect Stundent & Alumini   //
 const headline = 'Your Gateway to Growth';
 const subHeadline =
     'Explore, connect, and succeed with student-focused resources.';
 const studentText = 'Connect as Student';
 const aluminiText = 'Connect as Alumini';
+
+const homePage = 'Home Page';

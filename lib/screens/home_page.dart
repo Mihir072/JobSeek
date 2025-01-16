@@ -1,15 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:jobseek/util/string.dart';
 
-class HomePage extends StatefulWidget {
-  const HomePage({super.key});
+class HomePage extends StatelessWidget {
+  final String token;
 
-  @override
-  State<HomePage> createState() => _HomePageState();
-}
+  const HomePage({super.key, required this.token});
 
-class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text(homePage),
+      ),
+      body: Center(
+        child: Text('JWT Token: $token'),
+      ),
+    );
   }
 }

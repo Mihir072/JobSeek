@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:jobseek/OnBoarding/OnBoarding_Widget/OnBoarding_Widget.dart';
-import 'package:jobseek/screens/home_page.dart';
-import 'package:jobseek/util/image.dart';
-import 'package:jobseek/util/string.dart';
+import 'package:jobseek/OnBoarding/Widget/OnBoarding_Widget.dart';
+import 'package:jobseek/Student-Alumini/Studnet-Alumini_Page/student_alumini_connect.dart';
+import 'package:jobseek/Util/image.dart';
+import 'package:jobseek/Util/string.dart';
 
 class OnBoardingPage extends StatefulWidget {
   const OnBoardingPage({super.key});
@@ -30,8 +30,8 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
   }
 
   void _goToHome() {
-    Navigator.push(
-        context, MaterialPageRoute(builder: (context) => HomePage()));
+    Navigator.pushReplacement(context,
+        MaterialPageRoute(builder: (context) => StudentAluminiConnect()));
   }
 
   final List<Widget> _pages = [

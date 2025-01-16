@@ -13,8 +13,10 @@ class _SplashScreenState extends State<SplashScreen> {
   void splashScreen() {
     Future.delayed(
       Duration(seconds: 2),
-      () => Navigator.push(
-          context, MaterialPageRoute(builder: (context) => OnBoardingPage())),
+      () => Navigator.pushReplacement(
+          // ignore: use_build_context_synchronously
+          context,
+          MaterialPageRoute(builder: (context) => OnBoardingPage())),
     );
   }
 
