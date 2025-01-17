@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:jobseek/OnBoarding/Widget/OnBoarding_Widget.dart';
-import 'package:jobseek/Student-Alumini/Studnet-Alumini_Page/student_alumini_connect.dart';
+import 'package:jobseek/Student-Alumni/Studnet-Alumni_Page/student_alumni_connect.dart';
 import 'package:jobseek/Util/image.dart';
 import 'package:jobseek/Util/string.dart';
 
@@ -31,7 +31,7 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
 
   void _goToHome() {
     Navigator.pushReplacement(context,
-        MaterialPageRoute(builder: (context) => StudentAluminiConnect()));
+        MaterialPageRoute(builder: (context) => StudentAlumniConnect()));
   }
 
   final List<Widget> _pages = [

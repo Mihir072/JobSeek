@@ -1,19 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:jobseek/Student-Alumini/Widget/widget_container.dart';
-import 'package:jobseek/alumini_register_page.dart';
-import 'package:jobseek/student_register_page.dart';
+import 'package:jobseek/Student-Alumni/Widget/widget_container.dart';
+import 'package:jobseek/Alumni%20Screens/alumni_register_page.dart';
+import 'package:jobseek/Student%20Screens/student_register_page.dart';
 import 'package:jobseek/util/image.dart';
 import 'package:jobseek/util/string.dart';
 
-class StudentAluminiConnect extends StatefulWidget {
-  const StudentAluminiConnect({super.key});
+class StudentAlumniConnect extends StatefulWidget {
+  const StudentAlumniConnect({super.key});
 
   @override
-  State<StudentAluminiConnect> createState() => _StudentAluminiConnectState();
+  State<StudentAlumniConnect> createState() => _StudentAlumniConnectState();
 }
 
-class _StudentAluminiConnectState extends State<StudentAluminiConnect> {
+class _StudentAlumniConnectState extends State<StudentAlumniConnect> {
   void _goToStudentLogin() {
     Navigator.push(context,
         MaterialPageRoute(builder: (context) => StudentRegistrationPage()));
