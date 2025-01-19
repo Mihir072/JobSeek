@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http; // Import http package
 import 'dart:convert';
-import 'package:jobseek/login_page.dart'; // Import for JSON encoding/decoding
+import 'package:jobseek/Student%20Screens/student_login_page.dart'; // Import for JSON encoding/decoding
 
 class StudentRegistrationPage extends StatefulWidget {
   const StudentRegistrationPage({super.key});
@@ -45,15 +45,28 @@ class _StudentRegistrationPageState extends State<StudentRegistrationPage> {
       );
 
       if (response.statusCode == 201 || response.statusCode == 200) {
+        final Map<String, dynamic> responseBody = jsonDecode(response.body);
+        String? studentId =
+            responseBody['student_id']; // Extract alumniId if available
+
+        // ignore: use_build_context_synchronously
         ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(content: Text('Student registerd successfuly')));
+            const SnackBar(content: Text('Student registered successfully')));
+
         Navigator.pushReplacement(
-            context, MaterialPageRoute(builder: (context) => LoginPage()));
+          // ignore: use_build_context_synchronously
+          context,
+          MaterialPageRoute(
+            builder: (context) => StudentLoginPage(),
+          ),
+        );
       } else {
+        // ignore: use_build_context_synchronously
         ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(content: Text('Failed to register : ${response.body}')));
+            SnackBar(content: Text('Failed to register: ${response.body}')));
       }
     } catch (e) {
+      // ignore: use_build_context_synchronously
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(content: Text('Error: $e')),
       );

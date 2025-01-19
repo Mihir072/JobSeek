@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:jobseek/Screens/splash_page.dart';
-import 'package:jobseek/Student%20Screens/student_register_page.dart';
-import 'package:jobseek/login_page.dart';
+import 'package:jobseek/Student-Alumni/Studnet-Alumni_Page/student_alumni_connect.dart';
 
 void main() {
   runApp(const MyApp());
@@ -15,7 +13,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: const LoginPage(),
+      home: const StudentAlumniConnect(),
     );
   }
 }

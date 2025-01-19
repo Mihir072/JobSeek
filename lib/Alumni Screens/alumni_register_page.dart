@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http; // Import http package
+import 'package:jobseek/Alumni%20Screens/alumni_login_page.dart';
 import 'dart:convert';
-import 'package:jobseek/login_page.dart';
 
 class AlumniRegistrationPage extends StatefulWidget {
   const AlumniRegistrationPage({super.key});
@@ -43,11 +43,20 @@ class _AlumniRegistrationPageState extends State<AlumniRegistrationPage> {
       );
 
       if (response.statusCode == 201 || response.statusCode == 200) {
+        final Map<String, dynamic> responseBody = jsonDecode(response.body);
+        String? alumniId = responseBody['alumni_id'];
+        // ignore: use_build_context_synchronously
         ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(content: Text('Alumni registerd successfuly')));
         Navigator.pushReplacement(
-            context, MaterialPageRoute(builder: (context) => LoginPage()));
+            // ignore: use_build_context_synchronously
+            context,
+            MaterialPageRoute(
+                builder: (context) => AlumniLoginPage(
+                      alumniId: alumniId ?? '',
+                    )));
       } else {
+        // ignore: use_build_context_synchronously
         ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(content: Text('Failed to register : ${response.body}')));
       }

@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 
 class StudentHomePage extends StatelessWidget {
   final String token;
+  final String studentId;
 
-  const StudentHomePage({super.key, required this.token});
+  const StudentHomePage(
+      {super.key, required this.token, required this.studentId});
 
   @override
   Widget build(BuildContext context) {
@@ -12,7 +14,12 @@ class StudentHomePage extends StatelessWidget {
         title: const Text('Student Home Page'),
       ),
       body: Center(
-        child: Text('Welcome Student! JWT Token: $token'),
+        child: Row(
+          children: [
+            Text('Welcome Student! JWT Token: $token'),
+            Text('Welcome Student! Student ID: $studentId')
+          ],
+        ),
       ),
     );
   }

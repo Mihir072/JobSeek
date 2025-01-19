@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:jobseek/Student%20Screens/student_bottombar_page.dart';
 import 'dart:convert';
 
-import 'package:jobseek/Student%20Screens/student_home_page.dart';
-import 'package:jobseek/Alumni%20Screens/alumni_home_page.dart';
-
-class LoginPage extends StatefulWidget {
-  const LoginPage({super.key});
+class StudentLoginPage extends StatefulWidget {
+  const StudentLoginPage({
+    super.key,
+  });
 
   @override
-  State<LoginPage> createState() => _LoginPageState();
+  State<StudentLoginPage> createState() => _StudentLoginPageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _StudentLoginPageState extends State<StudentLoginPage> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
@@ -38,35 +38,20 @@ class _LoginPageState extends State<LoginPage> {
         final Map<String, dynamic> responseBody = jsonDecode(response.body);
         String token = responseBody['access_token'];
         String role = responseBody['role'];
+        String? alumniId =
+            responseBody['alumni_id']; // Extract alumniId from the response
 
         // ignore: use_build_context_synchronously
         ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(content: Text('Login Successful')),
         );
-
-        // Navigate based on role
-        if (role == 'student') {
-          Navigator.pushReplacement(
-            // ignore: use_build_context_synchronously
-            context,
-            MaterialPageRoute(
-              builder: (context) => StudentHomePage(token: token),
-            ),
-          );
-        } else if (role == 'alumni') {
-          Navigator.pushReplacement(
-            // ignore: use_build_context_synchronously
-            context,
-            MaterialPageRoute(
-              builder: (context) => AlumniHomePage(token: token),
-            ),
-          );
-        } else {
+        Navigator.pushReplacement(
           // ignore: use_build_context_synchronously
-          ScaffoldMessenger.of(context).showSnackBar(
-            const SnackBar(content: Text('Unknown role')),
-          );
-        }
+          context,
+          MaterialPageRoute(
+            builder: (context) => StudentBottomBarPage(),
+          ),
+        );
       } else {
         final Map<String, dynamic> responseBody = jsonDecode(response.body);
         // ignore: use_build_context_synchronously
